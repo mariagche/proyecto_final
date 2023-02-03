@@ -1,0 +1,13 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Acerca de Mi{% endblock subtitulo %}
+
+{% block contenido %}
+<h1>Bienvenido {{ user.last_name }}, {{ user.first_name }}</h1>
+<h5>Mi nombre es Hernán y estoy aqui para llevarte el cafe que elijas a tu domicilio</h5>
+<h5>Este espacio fue creado para los amantes del café de especialidad</h5>
+<h5>El objetivo es intercambiar opiniones sobre los distintos cafés en Argentina</h5>
+<h5>Ante cualquier duda o sugerencia podes escribir a:</h5>
+<h5>hernan@hotmail.com o al tel: 1585657898</h5>
+<img src="{{ user.avatar.imagen.url }}" />
+{% endblock contenido %}

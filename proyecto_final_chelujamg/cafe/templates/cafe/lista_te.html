@@ -1,0 +1,58 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Lista de Té disponibles{% endblock subtitulo %}
+
+{% block estilos %}
+h1.titulos-coder {
+  color: #787276;
+}
+{% endblock estilos %}
+
+{% block contenido %}
+<h1> Lista de Tés</h1>
+<a href="{% url 'crear_Te' %}">Añadir</a>
+
+<br><br>
+<form action="{% url 'buscar_Te' %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="busqueda">
+  <input type="submit" value="Buscar">
+</form>
+<br>
+
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <th>Cantidad</th>
+      <th>Descripcion</th>
+      <th>Fecha de entrega</th>
+      <th>Precio</th>
+      <th>Ver</th>  
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    {% for Te in object_list %}
+    <tr>
+      <td>{{ Te.tipo }}</td>
+      <td>{{ Te.cantidad }}</td>
+      <td>{{ Te.descripcion }}</td>
+      <td>{{ Te.fecha_entrega }}</td>
+      <td>{{ Te.precio }}</td>
+      <td>
+        <a href="{% url 'ver_Te' Te.id %}">Ver</a>
+      </td>
+      <td>
+        <a href="{% url 'editar_Te' Te.id %}">Editar</a>
+      </td>
+      <td>
+        <a href="{% url 'eliminar_Te' Te.id %}">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock contenido %}
+

@@ -1,0 +1,16 @@
+{% extends "cafe/base.html" %}
+
+{% block subtitulo %}Crear Cliente{% endblock subtitulo %}
+
+{% block contenido %}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Crear Nuevo Cliente" />
+</form>
+
+<br>
+<a href="{% url 'listar_cliente' %}">Volver lista</a>
+
+{% endblock contenido %}
