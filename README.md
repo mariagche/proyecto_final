@@ -22,3 +22,8 @@ python manage.py createsuperuser
 ```
 127.0.0.1:8000/admin
 ```
+
+link del video en loom indicando como funciona todo
+
+
+https://www.loom.com/share/fcf858eae0564034b51f85e67da1d79a
